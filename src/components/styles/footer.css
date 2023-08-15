@@ -1,0 +1,10 @@
+.content__footer {
+    height: 100px;
+    background-color: rgb(50, 50, 52);
+}
+
+.title__footer {
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+}

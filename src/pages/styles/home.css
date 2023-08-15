@@ -1,0 +1,49 @@
+/* .content__home {
+    padding-top: 100px;
+    background-color: rgb(77, 77, 212);
+    color: white;
+}
+
+.title__home {
+
+    text-align: center;
+
+} */
+
+.content__home {
+    padding-top: 140px;
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(229, 229, 246);
+  }
+  
+  .title__home {
+    position: absolute;
+    color: rgb(59, 59, 59);
+    top: 80px;
+    left: 100%; /* Empieza fuera del contenedor a la derecha */
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    animation: slideLeftRight 10s linear infinite; /* Ajusta la duración y timing de la animación */
+  }
+  
+  @keyframes slideLeftRight {
+    0% {
+      left:100%; /* Comienza desde la derecha */
+    }
+    100% {
+      left: -100%; /* Termina en el lado izquierdo */
+    }
+  }
+
+  .content__info-home {
+    padding: 0 30px;
+  }
+
+  .contact__home {
+    padding: 0 30px 20px 30px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    font-size: 1.3rem;
+  }

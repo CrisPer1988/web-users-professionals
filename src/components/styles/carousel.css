@@ -1,0 +1,21 @@
+.content__carousel {
+
+    width: 100%;
+    /* background-color: red; */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.img__carousel {
+    /* max-width: 550px; */
+    aspect-ratio: 14/9;
+    object-fit: cover;
+    margin: 0 auto;
+    
+    
+}
+

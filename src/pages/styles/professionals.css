@@ -1,0 +1,11 @@
+.content__professinals {
+    padding-top: 80px;
+    background-color: rgb(233, 231, 227);
+}
+
+.content_card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.8rem;
+    padding: 50px;
+}

@@ -1,0 +1,41 @@
+.content__review {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+    background-color: rgb(222, 222, 222);
+    
+    /* text-align: center; */
+    
+    
+   
+}
+
+/* .content__review:hover {
+    transform: translateY(5px);
+} */
+
+ .review__name {
+    color: rgb(238, 237, 237);
+    text-transform: uppercase;
+    text-align: center;
+    background-color: rgb(44, 44, 44);
+    padding: 8px;
+}
+
+.review__comment-title {
+    text-align: center;
+}
+
+.review__comment-comment {
+    text-align: center;
+}
+
+
+
+.review__rating {
+    text-align: end;
+}
+.review__date {
+    text-align: end;
+} 
