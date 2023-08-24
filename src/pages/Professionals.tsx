@@ -1,50 +1,37 @@
-import { useDispatch, useSelector } from "react-redux"
-import {useEffect} from "react"
-import { AllprofessionalsThunk } from "../store/slices/professionals.slices"
-import {ProfessionalsInter} from "../utils/interfaces"
-
 import CardProfessional from "../components/CardProfessional";
 import "./styles/professionals.css"
-
+import { Professional } from "../utils/interfaces";
+import { useProfessionals } from "../hooks/useProfessionals";
 
 const Professionals = () => {
-  const {professionals} = useSelector((state:any) => state)
-  const dispatch = useDispatch()
-
-
-  useEffect(() => {
-    dispatch(AllprofessionalsThunk())
-  }, [])
-
- // console.log(professionals);
-console.log(localStorage.getItem("token"));
-
-
-
- 
+  const { categories, professionals, handleSelectChange } = useProfessionals()
 
   return (
     <>
-    <div className="content__professinals">
-      <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio accusamus, ipsa optio laborum provident iste. Maiores perspiciatis esse illo laboriosam nemo sed expedita! Sapiente, molestiae tenetur nemo quidem fugiat dolorum?</h3>
-      <div className="content_card">
-      {
-        professionals?.map((professional:ProfessionalsInter) => (
-          <CardProfessional
-          key={professional.id} 
-          professional={professional}
-          />
-        ))
-      }
+      <div className="content__professinals">
+        <div className="filter">
+          <h1>Escoge a tu profesional y contactalo</h1>
+          <div className="content__options">
+            <h4>CATEGORIAS:</h4>
+            <select onChange={(e) => handleSelectChange(e.target.value)}>
+              <option value="">Todos</option>
+              {categories?.map((category:any) => (
+                <option key={category.id} value={category.id}>
+                  {category.name_category}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <div className="content_card">
+          {professionals?.professionals.map((professional: Professional) => (
+            <CardProfessional
+              key={professional.id}
+              professional={professional}
+            />
+          ))}
+        </div>
       </div>
-     
-
- 
-    </div>
-
-
-
-      
     </>
   )
 }

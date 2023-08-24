@@ -14,27 +14,27 @@ const ProfessionalPage = () => {
   const [professional, setProfessional] = useState<Professional>();
   const [showReview, setShowReview] = useState(false);
   const { register, handleSubmit, reset } = useForm();
-  const [modalReviewOk, setModalReviewOk] = useState(false)
+  const [handleErrors, sethandleErrors] = useState(false)
+  const [modalReview, setModalReview] = useState(false)
   // const {reviews} = useSelector(state => state)
   // const dispatch = useDispatch()
    const navigate = useNavigate()
+   const [stateReview, setStateReview] = useState(false)
 
 
   useEffect(() => {
-     const url = `http://localhost:4600/api/v1/professionals/${id}`;
-
-    axios
-      .get(url)
+    axiosInstance
+      .get(`/professionals/${id}`)
       .then((res) => {
-        setProfessional(res.data.professional);
-        // dispatch(AllReviewsThunk(id))
+          setProfessional(res.data.professional);
       })
-      .catch((err) => console.log(err));
-  }, []);
+      .catch((err) => {
+        navigate("/login")
+        console.log(err)});
+        
+  }, [stateReview]);
   
-  console.log(professional);
-
- 
+console.log({professional, stateReview});
 
   const handleShow = () => {
     if(!localStorage.getItem("token")){
@@ -51,23 +51,40 @@ const ProfessionalPage = () => {
       .post(`/professionals/reviews/${id}`, data)
       .then((res) => {
         console.log(res.data);
+        setStateReview(!stateReview)
         setShowReview(false);
-        setModalReviewOk(true)
+        setModalReview(true)
         setTimeout(() => {
-          setModalReviewOk(false)
+          setModalReview(false)
         }, 2000);
-        //dispatch(AllReviewsThunk(id))
         reset()
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        sethandleErrors(false);
+        sethandleErrors(true)
+        setTimeout(() => {
+          sethandleErrors(false)
+        }, 2500);
+        
+        console.log(err)});
   };
   
 
   return (
     <div className="content__oneProfessional">
      {
-     modalReviewOk ? <div className="modal__review"><h2>Gracias por tu comentario</h2></div>
+     modalReview ? <div className="modal__review"><h2>Gracias por tu comentario</h2></div>
      : ""}
+
+     {
+      handleErrors ? <div className="modal__review text__error">
+        <h2>ERROR!</h2>
+      <h4>Todos los campos son requeridos</h4>
+            <span> *Rating: minimo "1", maximo "10" </span>
+      </div> : ""
+     }
+
+
       <div className="content__info-professional">
         <div>
         <h1>{professional?.name}</h1>
@@ -77,7 +94,7 @@ const ProfessionalPage = () => {
         
           <div className="item">
             <i className="bx bxl-whatsapp-square whats__app">
-              <a
+              <a className="item__text"
                 href={`https://wa.me/549${professional?.number_tel}`}
                 target="blank"
               >
@@ -88,7 +105,7 @@ const ProfessionalPage = () => {
           
           
             <i className="bx bxs-envelope email__icon">
-              <a href="">{professional?.email}</a>
+              <a className="item__text" href="">{professional?.email}</a>
             </i>
           </div>
           <button className="btn__review" onClick={handleShow}>
@@ -106,7 +123,7 @@ const ProfessionalPage = () => {
               </div>
             ))}
           </div>
-          <hr />
+          
           <h2 className="title__reviews">Reseñas</h2>
           <div className="reviews__cards">
             {
@@ -134,7 +151,7 @@ const ProfessionalPage = () => {
             <textarea name="comment" {...register("comment")}></textarea>
           </div>
           <div className="item__review">
-            <label htmlFor="rating">Rating</label>
+            <label htmlFor="rating">Rating <span>(Valor maximo 10)</span> </label>
             <input type="number" {...register("rating")} />
           </div>
           <button>Enviar</button>
@@ -142,6 +159,8 @@ const ProfessionalPage = () => {
       ) : (
         ""
       )}
+
+
     </div>
   );
 };

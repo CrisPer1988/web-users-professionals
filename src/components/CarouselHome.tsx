@@ -15,19 +15,19 @@ const CarouselHome = () => {
     autoplayTimeout={1000}
     >
       <div className='item content__img'>
-        <img className='img__carousel' src="/images/prof-albañil.webp" alt="" />
+        <img className='img__carousel' src="/images/logo-carpintero.png" alt="" />
     </div>
     <div className='item content__img'>
-        <img className='img__carousel' src="/images/prof-electricista.avif" alt="" />
+        <img className='img__carousel' src="/images/logo-electricista.png" alt="" />
     </div>
     <div className='item content__img'>
-        <img className='img__carousel' src="/images/prof-mecanico.webp" alt="" />
+        <img className='img__carousel' src="/images/logo-peluqueria.png" alt="" />
     </div>
     <div className='item content__img'>
-        <img className='img__carousel' src="/images/prof-peluquero.avif" alt="" />
+        <img className='img__carousel' src="/images/logo-reparadorpc.png" alt="" />
     </div>
     <div className='item content__img'>
-        <img className='img__carousel' src="/images/prof-repostero.jpg" alt="" />
+        <img className='img__carousel' src="/images/logo-reposteria.png" alt="" />
     </div>
     </OwlCarousel > 
     </div>

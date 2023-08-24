@@ -1,37 +1,52 @@
 import { useNavigate } from "react-router-dom"
-import { categoryInter } from "../utils/interfaces"
+import { Professional } from "../utils/interfaces"
 import "./styles/cardProfessional.css"
+import { useState } from "react"
 
-const CardProfessional = ({professional}) => {
+export interface Props {
+  professional: Professional,
+}
+
+const CardProfessional = ({professional}:Props) => {
+  const [isHover, setIsHover] = useState(false)
   const navigate = useNavigate()
    
 
-    const handleClick = () => {
-      navigate(`/professional/${professional.id}`)
+    const handleClick = (id:number) => {
+      navigate(`/professional/${id}`)
     }
 
 
   return (
-    <div>
-    {
-      <div className="card">
-        <h1>{professional.name}</h1>
-        {professional.categories.map((category:categoryInter) => (
-          <div key={category.id}>
-            <h3>{category.name_category}</h3>   
-          </div>   
-        ))}
-        <h4>Trabajos cargados: {professional.jobs.length}</h4>
-        {/* <h4>Rating: {professional?.reviews.map(review => (
-            <h4>{review.rating} /10</h4>
-        ))}</h4> */}
-        
-        <button className="btn__jobs" onClick={handleClick}>Ver trabajos</button>
-      </div>
-    }
-    </div>
-    
+    <>
+    <div
+  onMouseEnter={() => setIsHover(true)}
+  onMouseLeave={() => setIsHover(false)}
+  className="card"
+  style={{
+    backgroundImage: `url(${professional.jobs[0].imageUrl})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  }}>
+
+  <div 
+  className="text__card"
+  style={{
+    visibility: isHover ? "visible" : "hidden",
+    width:"100%",
+    height: "100%"
+  }}
+  >
+  <h1>{professional.name}</h1>
+  <h3>{professional.cat_name}</h3>
+  <h4>Trabajos cargados: {professional.jobs.length}</h4>
+  <button className="btn__jobs" onClick={() => handleClick(professional.id)}>Ver trabajos</button>
+  </div>
+</div>
+    </> 
   )
 }
 
 export default CardProfessional
+
+

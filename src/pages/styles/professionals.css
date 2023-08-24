@@ -1,11 +1,56 @@
 .content__professinals {
     padding-top: 80px;
-    background-color: rgb(233, 231, 227);
+    background-color: rgb(220, 220, 228);
+
 }
 
+.filter {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 20px 0 0;
+}
+
+.content__options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.content__options select {
+    padding: 5px;
+    color: #3b3b3b;
+}
+
+
+
 .content_card {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.8rem;
-    padding: 50px;
+    display: flex;
+    flex-wrap:wrap-reverse;
+    justify-content: center;
+    align-content: stretch;
+    flex-shrink: 1;
+    padding: 50px 100px;
+    column-gap: 1rem;
+    row-gap: 1.8rem;
+  }
+  
+  .card {
+    flex: 1;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    text-align: center;
+    min-width: 200px; 
+    max-width: 40%; 
+  }
+  
+.content__options select {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.content__options option {
+    text-align: center;
+
+    font-size: 1rem;
 }

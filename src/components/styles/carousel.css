@@ -1,7 +1,7 @@
 .content__carousel {
 
     width: 100%;
-    /* background-color: red; */
+   
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
@@ -11,10 +11,10 @@
 
 
 .img__carousel {
-    /* max-width: 550px; */
-    aspect-ratio: 14/9;
+    aspect-ratio: 24/9;
     object-fit: cover;
     margin: 0 auto;
+    background-color: rgb(255, 255, 255);
     
     
 }

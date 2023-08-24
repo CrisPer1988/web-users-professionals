@@ -1,9 +1,3 @@
-.content__card {
-   
-    /* display: flex; */
-    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
-
-}
 
 .card {
     display: flex;
@@ -11,24 +5,31 @@
     justify-content: center;
     align-items: center;
     gap: 0.8rem;
-    border: 2px solid rgb(255, 255, 255);
+    border: 2px solid rgb(222, 215, 215);
     border-radius: 10px;
-    padding: 20px;
-    box-shadow: 5px 3px 3px rgb(149, 149, 149);
+    /* padding: 20px; */
+    /* box-shadow: 5px 3px 3px rgb(149, 149, 149); */
     transition: all 0.2s ease;
-
+    background-color: rgb(203, 201, 201);
+    
 }
 
-.card:hover {
-    transform: translateY(3px);
-    box-shadow: -5px -3px 3px rgb(149, 149, 149);
-    border: none;
+.text__card {
+    background-color: rgba(0, 0, 0, 0.432);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-radius: 10px;
+    padding: 20px;
+    /* display: block; */
 }
 
 .btn__jobs {
     border: none;
     padding: 15px;
     border-radius: 10px;
-    background-color: rgb(44, 44, 44);
-    color: white;
+    background-color: #0e61aa;
+    color: rgb(246, 245, 245);
 }
+

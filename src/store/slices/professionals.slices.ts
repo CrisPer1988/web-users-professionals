@@ -1,17 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import axiosInstance from "../../utils/getConfig";
+
 
 export const professionalsSlices = createSlice({
     name: "professionals",
     initialState: null,
     reducers: {
         setProfessionals: (state, action) => action.payload,
-        //setReviews: (state, action) => action.payload
+       
     }
 })
 
-export const {setProfessionals, /*setReviews*/} = professionalsSlices.actions
+
+export const {setProfessionals} = professionalsSlices.actions
 
 export default professionalsSlices.reducer
 
@@ -19,20 +20,29 @@ export const AllprofessionalsThunk = () => (dispatch) =>{
     const url = "http://localhost:4600/api/v1/professionals/"
 
     axios.get(url)
-    .then(res => dispatch(setProfessionals(res.data.professionals)))
+    .then(res => {
+        console.log(res.data);
+        
+        dispatch(setProfessionals(res.data))})
     .catch(err => console.log(err))
 }
 
-// export const AllReviewsThunk = () => (dispatch) =>{
-   
+export const ProfessionalsByCategoryThunk = (id:number) => (dispatch:any) =>{
+    console.log(`putete: ${id}`);
+    
+    const url = `http://localhost:4600/api/v1/professionals/categories/${id}`
 
-//     axiosInstance
-//     .get("/professionals/reviews")
-//     .then(res => dispatch(setReviews(res.data)))
-//     .catch(err => console.log(err))
-// }
+    axios.get(url)
 
-// console.log(professionalsSlices);
+    .then(res => {
+        console.log(res.data.categories);
+        dispatch(setProfessionals(res.data.categories))
+    })
+    .catch(err => console.log(err))
+}
+
+
+
 
 
 
