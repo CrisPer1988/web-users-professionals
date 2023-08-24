@@ -47,3 +47,10 @@ nav {
 .nav-active {
     color: rgb(177, 177, 177);
 }
+
+.btn__send {
+    padding: 8px;
+    background-color: #ffffff;
+    color: #0e61aa;
+    border-radius: 10px;
+}

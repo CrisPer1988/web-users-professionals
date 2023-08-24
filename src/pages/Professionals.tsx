@@ -1,6 +1,6 @@
 import CardProfessional from "../components/CardProfessional";
 import "./styles/professionals.css"
-import { Professional } from "../utils/interfaces";
+import { Categories, Professional } from "../utils/interfaces";
 import { useProfessionals } from "../hooks/useProfessionals";
 
 const Professionals = () => {
@@ -15,7 +15,7 @@ const Professionals = () => {
             <h4>CATEGORIAS:</h4>
             <select onChange={(e) => handleSelectChange(e.target.value)}>
               <option value="">Todos</option>
-              {categories?.map((category:any) => (
+              {categories?.map((category:Categories) => (
                 <option key={category.id} value={category.id}>
                   {category.name_category}
                 </option>

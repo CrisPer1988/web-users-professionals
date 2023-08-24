@@ -1,3 +1,9 @@
+export interface Categories {
+    id: number;
+    name_category: string;
+    professional_id: number
+
+}
 
 export interface Professional {
     id: number;

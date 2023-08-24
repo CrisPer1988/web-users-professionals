@@ -19,14 +19,6 @@
     width: 60%;
 }
 
-.btn__send {
-    padding: 8px;
-    background-color: #ffffff;
-    color: #0e61aa;
-    border-radius: 10px;
-    
-}
-
 .form__login input {
     /* border-radius: 10px; */
     border: none;
