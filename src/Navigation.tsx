@@ -17,9 +17,6 @@ const Navigation = () => {
  const {isLoggin} = useSelector(state => state)
  const dispatch = useDispatch()
 
-console.log(isLoggin);
-
-
   const logout = () => {
     // setIsLoggin(!isLoggin)
     dispatch(setIsLoggin(true))

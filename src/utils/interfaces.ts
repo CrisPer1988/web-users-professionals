@@ -15,6 +15,7 @@ export interface Professional {
         id: number;
         name_category: string;
         professional_id: number
+        //categories: Categories
     }[];
     jobs: {
       id: number;

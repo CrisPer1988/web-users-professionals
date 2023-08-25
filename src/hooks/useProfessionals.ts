@@ -2,9 +2,14 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { AllprofessionalsThunk, ProfessionalsByCategoryThunk } from "../store/slices/professionals.slices"
 import axios from "axios"
+import { Professional } from "../utils/interfaces"
+
+export interface PropsProfessionals {
+  professionals: Professional
+}
 
 export const useProfessionals = () => {
-    const [categories, setCategories] = useState()
+  const [categories, setCategories] = useState<any>()
   const { professionals } = useSelector((state: any) => state)
   const dispatch = useDispatch<any>()
 
@@ -20,7 +25,7 @@ export const useProfessionals = () => {
     const url = "http://localhost:4600/api/v1/categories/"
     axios.get(url)
       .then(res => {
-        console.log(res.data.categories);
+        // console.log(res.data.categories);
 
         setCategories(res.data.categories)
       })
@@ -28,17 +33,20 @@ export const useProfessionals = () => {
   }, [])
 
   function handleSelectChange(selectedValue: any) {
-    if (selectedValue === "") {
+    if (!selectedValue) {
       dispatch(AllprofessionalsThunk());
     } else {
-      handleClick((selectedValue));
+        handleClick((selectedValue));
+       //dispatch(ProfessionalsByCategoryThunk(selectedValue))
+
     }
   }
 
   return {
     categories,
-professionals,
-handleSelectChange
+    professionals,
+    handleSelectChange,
+    handleClick
 
   }
 }

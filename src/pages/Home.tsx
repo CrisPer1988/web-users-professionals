@@ -6,11 +6,15 @@ const Home = () => {
     <div className="content__home">
      
       <header className="header__home">
-      <img className="logo" src="/images/logo3.png" alt="" />
+      <img className="logo" src="/images/logoo.png" alt="" />
         <div className="home__text">
           <h1>Profesionales de San Rafael</h1>
         </div>
         <div className="background__home-header"></div>
+        <div className="background__home-vector"></div>
+        <div className="rigth"></div>
+        <div className="background__home-vector-horizontal"></div>
+        <div className="background__home-vector-horizontal2"></div>
       </header>
       <div className="description__home">
       <div className="items__text-home">

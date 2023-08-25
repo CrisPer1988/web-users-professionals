@@ -5,9 +5,10 @@ import { useState } from "react"
 
 export interface Props {
   professional: Professional,
+  index: number
 }
 
-const CardProfessional = ({professional}:Props) => {
+const CardProfessional = ({professional, index}:Props) => {
   const [isHover, setIsHover] = useState(false)
   const navigate = useNavigate()
    
@@ -17,12 +18,15 @@ const CardProfessional = ({professional}:Props) => {
     }
 
 
+    console.log(index);
+    
+
   return (
     <>
     <div
   onMouseEnter={() => setIsHover(true)}
   onMouseLeave={() => setIsHover(false)}
-  className="card"
+  className={`card ${index % 2 === 0 ? 'large-card' : 'small-card'}`}
   style={{
     backgroundImage: `url(${professional.jobs[0].imageUrl})`,
     backgroundRepeat: "no-repeat",

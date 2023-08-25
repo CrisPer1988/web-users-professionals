@@ -1,17 +1,25 @@
 import { useEffect, useState } from "react";
 import "./styles/professionalPage.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axiosInstance from "../utils/getConfig";
 import CardReviews from "../components/CardReviews";
 import { Professional } from "../utils/interfaces";
 import { useProfessionalPage } from "../hooks/useProfessionalPage";
+import { useDispatch, useSelector } from "react-redux";
+import { ProfessionalsByCategoryThunk } from "../store/slices/professionals.slices";
+
 
 
 const ProfessionalPage = () => {
   const [professional, setProfessional] = useState<Professional>();
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit } = useForm();
   const navigate = useNavigate()
+
+ 
+
+const {professionals} = useSelector(state => state)
+const dispatch = useDispatch()
 
   const {
     handleErrors,
@@ -34,7 +42,32 @@ const ProfessionalPage = () => {
         console.log(err)
       });
 
-  }, [stateReview]);
+  }, [stateReview, id]);
+
+
+const idCategoryProfesional = professional?.categories[0]?.CategoryProfessional?.categoryId;
+
+console.log(idCategoryProfesional);
+
+  const  discoveryProf = (id) => {
+    navigate(`/professional/${id}`)
+  }
+
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+
+useEffect(() => {
+  if (idCategoryProfesional !== undefined) {
+    dispatch(ProfessionalsByCategoryThunk(idCategoryProfesional));
+  }
+}, [idCategoryProfesional]);
+
+  console.log(professionals);
+  
 
 
   return (
@@ -51,26 +84,21 @@ const ProfessionalPage = () => {
         </div> : ""
       }
 
-
       <div className="content__info-professional">
         <div>
           <h1>{professional?.name}</h1>
           <h3>{professional?.categories[0].name_category}</h3>
         </div>
-
-
         <div className="item">
           <i className="bx bxl-whatsapp-square whats__app">
             <a className="item__text"
-              href={`https://wa.me/549${professional?.number_tel}`}
+              href="whatsapp://send?phone=2622468440&text=Hola%20amigo,%20estoy%20interesado%20en%20tu%20servicio"
+              // {`https://wa.me/549${professional?.number_tel}`}
               target="blank"
             >
-
               Contacto
             </a>
           </i>
-
-
           <i className="bx bxs-envelope email__icon">
             <a className="item__text" href="">{professional?.email}</a>
           </i>
@@ -126,6 +154,25 @@ const ProfessionalPage = () => {
       ) : (
         ""
       )}
+      <div className="content__discover">
+      <h2>Descubri profesionales similares</h2>
+
+      <div className="content__discover-card">
+      {professionals?.professionals.filter((profe) => profe.id !== professional?.id).map((prof) => (
+          <div className="card__discover" key={prof.id}>
+            <h1>{prof.name}</h1>
+            <img src={prof.jobs[0].imageUrl} alt="" />
+            <h3>Trabajos cargados: {prof.jobs.length}</h3>
+            <button onClick={() => {
+              discoveryProf(prof.id)
+              scrollTop();
+              }}
+              className="btn__jobs"
+              >Descubrir</button>
+          </div>
+        ))}
+      </div>
+      </div>
 
 
     </div>
