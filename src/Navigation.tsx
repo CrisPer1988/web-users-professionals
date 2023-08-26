@@ -8,52 +8,56 @@ import Register from "./pages/Register"
 import Login from "./components/Login"
 import { useDispatch, useSelector } from "react-redux"
 import { setIsLoggin } from "./store/slices/isloggin.slices"
+import { scrollTop } from "./funtions/scroll"
+import {useState} from "react"
 
 
 const Navigation = () => {
-
-  // const [isLoggin] = useState(true);
-
+const [flag, setFlag] = useState(false)
  const {isLoggin} = useSelector(state => state)
  const dispatch = useDispatch()
+ const [showMenu, setShowMenu] = useState(false)
 
-  const logout = () => {
-    // setIsLoggin(!isLoggin)
-    dispatch(setIsLoggin(true))
-    localStorage.clear()
-  }
+ const logout = () => {
+  dispatch(setIsLoggin(true));
+  localStorage.setItem('isLoggin', JSON.stringify(true)); 
+  localStorage.clear()
+};
 
-
+console.log(`puteteeeeeeeee ${isLoggin}`);
+console.log(localStorage.getItem("token"));
 
 
   return (
       <BrowserRouter>
-      <div className="navBar">
-      <nav>
+      <div className="content__nav">
+        <h1 onClick={() => setShowMenu(!showMenu)} className="burger__menu">X</h1>
+      <nav className={showMenu ? "active" : ""}> 
         <ul>
           <li>
-            <NavLink className={({isActive}) => isActive ? "nav-active" : ""}  to={"/"}>Inicio</NavLink>
+            <NavLink className={({isActive}) => isActive ? "nav-active" : ""}  to={"/"} onClick={scrollTop}>Inicio</NavLink>
           </li>
         </ul>
         <ul>
           <li>
-            <NavLink className={({isActive}) => isActive ? "nav-active" : ""} to={"/professionals"}>Profesionales</NavLink>
+            <NavLink className={({isActive}) => isActive ? "nav-active" : ""} to={"/professionals"} onClick={scrollTop}>Profesionales</NavLink>
           </li>
         </ul>
         {
           isLoggin ?  <ul>
           <li>
             
-            <NavLink className={({isActive}) => isActive ? "nav-active" : ""} to={"/register"}>Ingresar</NavLink>
+            <NavLink className={({isActive}) => isActive ? "nav-active" : ""} to={"/register"} onClick={scrollTop}>Ingresar</NavLink>
           </li>
         </ul>
         :
         <ul>
         <li>
-        <NavLink className={({isActive}) => isActive ? "nav-active" : ""} onClick={logout} to={"/register"}>Salir</NavLink>
+        <NavLink className={({isActive}) => isActive ? "nav-active" : ""} onClick={logout} to={"/register"} >Salir</NavLink>
         </li>
       </ul>
         }
+      
        
        
       </nav>

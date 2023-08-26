@@ -21,7 +21,8 @@ export const useSubmitLogin = () => {
     axios
       .post(url, data)
       .then((res) => {
-        dispatch(setIsLoggin(false))
+         dispatch(setIsLoggin(false));
+        localStorage.setItem('isLoggin', JSON.stringify(false));
      
         localStorage.setItem("token", res.data.token);
         setName(res.data.user.name);

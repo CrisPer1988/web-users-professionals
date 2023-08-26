@@ -1,13 +1,14 @@
 .content__oneProfessional {
     padding-top: 100px;
     padding-bottom: 50px;
-    background-color: rgb(233, 231, 227);
+    background-color: rgb(220, 220, 228);
+
 }
 
 .content__info-professional {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
     gap: 1.3rem;
@@ -151,6 +152,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .btn__review {

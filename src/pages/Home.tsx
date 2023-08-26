@@ -11,10 +11,10 @@ const Home = () => {
           <h1>Profesionales de San Rafael</h1>
         </div>
         <div className="background__home-header"></div>
-        <div className="background__home-vector"></div>
-        <div className="rigth"></div>
-        <div className="background__home-vector-horizontal"></div>
-        <div className="background__home-vector-horizontal2"></div>
+        <div className="background__home-vector left"></div>
+        <div className="background__home-vector rigth"></div>
+        <div className="background__home-vector top"></div>
+        <div className="background__home-vector bottom"></div>
       </header>
       <div className="description__home">
       <div className="items__text-home">

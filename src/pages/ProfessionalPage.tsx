@@ -8,6 +8,7 @@ import { Professional } from "../utils/interfaces";
 import { useProfessionalPage } from "../hooks/useProfessionalPage";
 import { useDispatch, useSelector } from "react-redux";
 import { ProfessionalsByCategoryThunk } from "../store/slices/professionals.slices";
+import { scrollTopBehavior } from "../funtions/scroll";
 
 
 
@@ -53,12 +54,12 @@ console.log(idCategoryProfesional);
     navigate(`/professional/${id}`)
   }
 
-  const scrollTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  }
+  // const scrollTop = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: 'smooth',
+  //   });
+  // }
 
 useEffect(() => {
   if (idCategoryProfesional !== undefined) {
@@ -92,8 +93,8 @@ useEffect(() => {
         <div className="item">
           <i className="bx bxl-whatsapp-square whats__app">
             <a className="item__text"
-              href="whatsapp://send?phone=2622468440&text=Hola%20amigo,%20estoy%20interesado%20en%20tu%20servicio"
-              // {`https://wa.me/549${professional?.number_tel}`}
+              href={`https://wa.me/549${professional?.number_tel}`}
+               
               target="blank"
             >
               Contacto
@@ -165,7 +166,7 @@ useEffect(() => {
             <h3>Trabajos cargados: {prof.jobs.length}</h3>
             <button onClick={() => {
               discoveryProf(prof.id)
-              scrollTop();
+              scrollTopBehavior();
               }}
               className="btn__jobs"
               >Descubrir</button>

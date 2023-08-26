@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { Professional } from "../utils/interfaces"
 import "./styles/cardProfessional.css"
 import { useState } from "react"
+import { scrollTop } from "../funtions/scroll"
 
 export interface Props {
   professional: Professional,
@@ -18,7 +19,7 @@ const CardProfessional = ({professional, index}:Props) => {
     }
 
 
-    console.log(index);
+    //console.log(index);
     
 
   return (
@@ -44,7 +45,10 @@ const CardProfessional = ({professional, index}:Props) => {
   <h1>{professional.name}</h1>
   <h3>{professional.cat_name}</h3>
   <h4>Trabajos cargados: {professional.jobs.length}</h4>
-  <button className="btn__jobs" onClick={() => handleClick(professional.id)}>Ver trabajos</button>
+  <button className="btn__jobs" onClick={() => {
+    handleClick(professional.id)
+    scrollTop()
+    }}>Ver trabajos</button>
   </div>
 </div>
     </> 

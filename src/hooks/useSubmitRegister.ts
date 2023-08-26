@@ -23,7 +23,7 @@ export const useSubmitRegister = (setIsLoggin:any) => {
             localStorage.setItem("token", res.data.token)
             setName(res.data.user.name)
             console.log(res.data);
-            setIsLoggin(false)
+           // setIsLoggin(false)
             setWelcome(true)
             setTimeout(() => {
                 setWelcome(false)
