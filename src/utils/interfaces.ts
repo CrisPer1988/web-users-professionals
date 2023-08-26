@@ -5,6 +5,10 @@ export interface Categories {
 
 }
 
+export interface CategoryProfessional {
+  categoryId: number;
+}
+
 export interface Professional {
     id: number;
     name: string;

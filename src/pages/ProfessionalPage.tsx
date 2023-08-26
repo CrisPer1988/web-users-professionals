@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axiosInstance from "../utils/getConfig";
 import CardReviews from "../components/CardReviews";
-import { Professional } from "../utils/interfaces";
 import { useProfessionalPage } from "../hooks/useProfessionalPage";
 import { useDispatch, useSelector } from "react-redux";
 import { ProfessionalsByCategoryThunk } from "../store/slices/professionals.slices";
@@ -13,14 +12,13 @@ import { scrollTopBehavior } from "../funtions/scroll";
 
 
 const ProfessionalPage = () => {
-  const [professional, setProfessional] = useState<Professional>();
-  const { register, handleSubmit } = useForm();
+  const [professional, setProfessional] = useState<any>();
+  const { register, handleSubmit } = useForm<any>();
   const navigate = useNavigate()
-
  
 
 const {professionals}:any = useSelector(state => state)
-const dispatch = useDispatch()
+const dispatch = useDispatch<any>()
 
   const {
     handleErrors,
@@ -46,11 +44,11 @@ const dispatch = useDispatch()
   }, [stateReview, id]);
 
 
-const idCategoryProfesional = professional?.categories[0]?.CategoryProfessional?.categoryId;
+const idCategoryProfesional: number | undefined  = professional?.categories[0].CategoryProfessional?.categoryId;
 
 console.log(idCategoryProfesional);
 
-  const  discoveryProf = (id) => {
+  const  discoveryProf = (id:number) => {
     navigate(`/professional/${id}`)
   }
 
@@ -69,7 +67,6 @@ useEffect(() => {
 
   console.log(professionals);
   
-
 
   return (
     <div className="content__oneProfessional">
@@ -111,7 +108,7 @@ useEffect(() => {
       </div>
       <h2 className="title__jobs">Trabajos</h2>
       <div className="content__jobs-imgs">
-        {professional?.jobs.map((job) => (
+        {professional?.jobs.map((job:any) => (
           <div className="content__img-jobs" key={job.id}>
             <img src={job.imageUrl} alt={job.work_name} />
             <h3>{job.work_name}</h3>
@@ -125,8 +122,8 @@ useEffect(() => {
         {
           professional?.reviews.length > 0 ? (
             professional?.reviews
-              .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-              .map((review) => (
+              .sort((a:any, b:any) => new Date(b.createdAt) - new Date(a.createdAt))
+              .map((review:any) => (
                 <CardReviews key={review.id} review={review} />
               ))
           ) : (
@@ -144,7 +141,7 @@ useEffect(() => {
           </h3>
           <div className="item__review">
             <label htmlFor="">Comentario</label>
-            <textarea name="comment" {...register("comment")}></textarea>
+            <textarea {...register("comment")}></textarea>
           </div>
           <div className="item__review">
             <label htmlFor="rating">Rating <span>(Valor maximo 10)</span> </label>
@@ -159,7 +156,7 @@ useEffect(() => {
       <h2>Descubri profesionales similares</h2>
 
       <div className="content__discover-card">
-      {professionals?.professionals.filter((profe) => profe.id !== professional?.id).map((prof) => (
+      {professionals?.professionals.filter((profe:any) => profe.id !== professional?.id).map((prof:any) => (
           <div className="card__discover" key={prof.id}>
             <h1>{prof.name}</h1>
             <img src={prof.jobs[0].imageUrl} alt="" />

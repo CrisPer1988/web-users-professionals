@@ -16,7 +16,7 @@ export const {setProfessionals} = professionalsSlices.actions
 
 export default professionalsSlices.reducer
 
-export const AllprofessionalsThunk = () => (dispatch) =>{
+export const AllprofessionalsThunk = () => (dispatch:any) =>{
     const url = "http://localhost:4600/api/v1/professionals/"
 
     axios.get(url)

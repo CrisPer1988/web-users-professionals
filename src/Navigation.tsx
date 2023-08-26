@@ -68,7 +68,7 @@ console.log(localStorage.getItem("token"));
         // setIsLoggin={setIsLoggin} 
         />} />
         <Route path="login" element={<Login 
-         setIsLoggin={setIsLoggin} 
+        // setIsLoggin={setIsLoggin} 
         />} />
       </Routes>
       
