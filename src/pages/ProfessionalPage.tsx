@@ -122,7 +122,7 @@ useEffect(() => {
         {
           professional?.reviews.length > 0 ? (
             professional?.reviews
-              .sort((a:any, b:any) => new Date(b.createdAt) - new Date(a.createdAt))
+              // .sort((a:any, b:any) => new Date(b.createdAt) - new Date(a.createdAt))
               .map((review:any) => (
                 <CardReviews key={review.id} review={review} />
               ))
