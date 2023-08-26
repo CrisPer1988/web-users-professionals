@@ -6,7 +6,7 @@ export const professionalsSlices = createSlice({
     name: "professionals",
     initialState: null,
     reducers: {
-        setProfessionals: (state, action) => action.payload,
+        setProfessionals: (_state, action) => action.payload,
        
     }
 })

@@ -6,7 +6,7 @@ export const reviewsSlices = createSlice({
     name: "reviews",
     initialState: null,
     reducers: {
-        setReviews: (state, action) => action.payload,
+        setReviews: (_state, action) => action.payload,
         //setReviews: (state, action) => action.payload
     }
 })
