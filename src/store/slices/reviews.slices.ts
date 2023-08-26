@@ -15,7 +15,7 @@ export const {setReviews} = reviewsSlices.actions
 
 export default reviewsSlices.reducer
 
-export const AllReviewsThunk = (id) => (dispatch) =>{
+export const AllReviewsThunk = (id:number) => (dispatch:any) =>{
     const url = `http://localhost:4600/api/v1/reviews/${id}`
 
     axios.get(url)
