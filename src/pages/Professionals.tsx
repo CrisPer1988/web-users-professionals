@@ -34,7 +34,7 @@ const Professionals = () => {
           </div>
         </div>
         <div className="content_card">
-          {professionals?.professionals.map((professional:Professional, index) => (
+          {professionals?.professionals.map((professional:Professional, index:number) => (
             <CardProfessional
               key={professional.id}
               professional={professional}

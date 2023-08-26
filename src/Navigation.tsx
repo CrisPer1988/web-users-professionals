@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom"
-import {Routes, Route, NavLink, Navigate} from "react-router-dom"
+import {Routes, Route, NavLink} from "react-router-dom"
 import Home from "./pages/Home"
 import Professionals from "./pages/Professionals"
 import Footer from "./components/Footer"
@@ -13,8 +13,7 @@ import {useState} from "react"
 
 
 const Navigation = () => {
-const [flag, setFlag] = useState(false)
- const {isLoggin} = useSelector(state => state)
+ const {isLoggin}:any = useSelector(state => state)
  const dispatch = useDispatch()
  const [showMenu, setShowMenu] = useState(false)
 

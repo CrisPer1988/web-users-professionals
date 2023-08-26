@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { useSubmitRegister } from "../hooks/useSubmitRegister";
 import { DataRegisterUser } from "../utils/interfaces";
 
-const Register = ({ setIsLoggin }: any) => {
+const Register = () => {
     const { register, handleSubmit } = useForm<DataRegisterUser>();
     const navigate = useNavigate()
 
-    const { welcome, name, handleError, submit, error } = useSubmitRegister(setIsLoggin)
+    const { welcome, name, handleError, submit, error } = useSubmitRegister()
 
     console.log(error);
 

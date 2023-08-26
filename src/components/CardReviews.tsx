@@ -1,6 +1,6 @@
 import "./styles/cardReviews.css"
 
-const CardReviews = ({review}) => {
+const CardReviews = ({review}:any) => {
 
   return (
     <>

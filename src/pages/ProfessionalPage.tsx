@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./styles/professionalPage.css";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axiosInstance from "../utils/getConfig";
 import CardReviews from "../components/CardReviews";
@@ -19,7 +19,7 @@ const ProfessionalPage = () => {
 
  
 
-const {professionals} = useSelector(state => state)
+const {professionals}:any = useSelector(state => state)
 const dispatch = useDispatch()
 
   const {
