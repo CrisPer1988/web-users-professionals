@@ -24,11 +24,7 @@
     background-image: url("/images/home2.jpg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size:100%;
-   
-    object-fit: cover; 
-
-    /* object-fit: cover; */ 
+    background-size: cover;
   }
 
   .background__home-header {
@@ -175,6 +171,16 @@
   }
 
   @media (max-width: 750px) {
+    .home__text {
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .background__home-vector {
+      display: none;
+    }
+
+
     .description__home {
       grid-template-columns: 1fr;
       gap: 0.5rem;
@@ -188,9 +194,7 @@
     }
 
     .content__contact {
-
       flex-direction: column;
-   
     }
 
     .content__info-home {
@@ -202,11 +206,10 @@
       justify-content: start;
     }
 
-    .header__home{  
-      background-size:100% 70%;
-      object-fit:fill;
-      /* object-fit: cover; */ 
-    }
+    /* .header__home{  
+      background-size: 100% 100%;
+      
+    } */
 
 
   }
