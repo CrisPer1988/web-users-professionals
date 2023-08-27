@@ -1,6 +1,6 @@
 .form__login {
-    margin: 100px auto;
-    width: 50%;
+    /* margin: 100px auto; */
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,28 +8,40 @@
     gap: 1.5rem;
     color: white;
     background-color: #0e61aa;
+    background: linear-gradient(0deg, rgba(14,97,170,1) 12%, rgba(8,52,91,1) 29%, rgba(2,9,16,1) 57%, rgba(1,2,4,1) 80%, rgba(1,3,7,1) 100%);
     border-radius: 20px;
-    padding: 100px 15px 30px 15px;
-    min-height: 80vh;
+    /* padding: 100px 15px 30px 15px; */
+    min-height: 100vh;
 }
 
 .item__form-login {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    /* width: 60%; */
+    width: 35%;
+    margin: 0 auto;
 }
 
 .form__login input {
     /* border-radius: 10px; */
     border: none;
-    border-bottom: 2px solid rgb(244, 242, 242);
-    border-right: 1px solid rgb(245, 245, 245);
+    /* border-bottom: 2px solid rgb(244, 242, 242);
+    border-right: 1px solid rgb(245, 245, 245); */
     border-radius: 8px;
     background-color: #1470c1;
-    padding: 3px;
-    color: rgb(234, 234, 234);
-    /* box-shadow: 3px 2px 2px #6cb2ef; */
+    background-color: #adafb1;
+    height: 40px;
+    padding: 10px;
+    color: #2c2c2b;
+}
 
+.btn__register {
+    background-color: #010204;
+    padding: 8px;
+    width: 35%;
+    height: 40px;
+    color: white;
+    border-radius: 10px;
 }
 
 .modal__welcome {
@@ -38,7 +50,7 @@
     border-radius: 15px;
     display: grid;
     place-content: center;
-    background-color: rgb(78, 135, 221);
+    background: linear-gradient(0deg, rgba(14,97,170,1) 36%, rgba(8,52,91,1) 63%);;
     color: rgb(250, 250, 250);
     text-align: center;
     position: absolute;

@@ -14,6 +14,7 @@ export const useProfessionalPage = () => {
     const navigate = useNavigate()
     const { reset } = useForm()
 
+
     const handleShow = () => {
         if (!localStorage.getItem("token")) {
             navigate("/login")
@@ -26,15 +27,17 @@ export const useProfessionalPage = () => {
     const sendReview = (data: Professional) => {
         axiosInstance
             .post(`/professionals/reviews/${id}`, data)
-            .then((res) => {
-                console.log(res.data);
+            .then(() => {
+                reset()
                 setStateReview(!stateReview)
                 setShowReview(false);
                 setModalReview(true)
                 setTimeout(() => {
                     setModalReview(false)
+                    
                 }, 2000);
-                reset()
+                
+                
             })
             .catch((err) => {
                 sethandleErrors(false);

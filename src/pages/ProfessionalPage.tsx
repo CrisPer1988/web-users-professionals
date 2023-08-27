@@ -90,7 +90,7 @@ useEffect(() => {
         <div className="item">
           <i className="bx bxl-whatsapp-square whats__app">
             <a className="item__text"
-              href={`https://wa.me/549${professional?.number_tel}`}
+              href={`https://wa.me/549${professional?.number_tel}?text=Hola%20${professional?.name},%20te%20escribo%20desde%20la%20web%20Profesionales%20San%20Rafael`}
                
               target="blank"
             >
@@ -165,7 +165,7 @@ useEffect(() => {
               discoveryProf(prof.id)
               scrollTopBehavior();
               }}
-              className="btn__jobs"
+              className="btn__jobs btn__discovery"
               >Descubrir</button>
           </div>
         ))}

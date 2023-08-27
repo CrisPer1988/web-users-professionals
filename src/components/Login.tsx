@@ -17,7 +17,11 @@ const Login = () => {
 
   return (
     <form className="form__login" onSubmit={handleSubmit(submit)}>
-      {handleError ? <div className="modal__welcome"><h2>Error! vuelve a intentar</h2></div> : ""}
+      {handleError ? <div className="modal__welcome modal__error">
+                        <h2>ERROR!</h2>
+                        <h4>Todos los campos son requeridos</h4>
+                        <span>Password: Minimo 8 caracteres</span>
+                    </div> : ""}
       {welcome ? <div className="modal__welcome"><h1>{`Bienvenid@ ${name}`}</h1></div> : ""}
       <h2>Ingresar</h2>
       <div className="item__form-login">
@@ -28,7 +32,7 @@ const Login = () => {
         <label htmlFor="password">Password</label>
         <input required {...register("password")} type="password" />
       </div>
-      <button className="btn__send">Enviar</button>
+      <button className="btn__register">Enviar</button>
       <span className="indicator__login" onClick={showForm}>Registrate</span>
     </form>
   )

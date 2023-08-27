@@ -51,7 +51,7 @@
 .email__icon {
     font-size: 2rem;
     color: rgb(239, 41, 41);
-    
+
 }
 
 .title__jobs,
@@ -60,7 +60,7 @@
     /* background-color: rgb(44, 44, 44); */
     /* background-color: white; */
     text-decoration: underline;
-    
+
     color: black;
     width: 30%;
     height: 30px;
@@ -68,7 +68,7 @@
     border-radius: 10px;
     /* color: white; */
     /* padding: 15px; */
-     margin-bottom: 20px; 
+     margin-bottom: 20px;
 }
 
 .content__img-jobs {
@@ -98,7 +98,7 @@
 .content__img-jobs img:hover {
     transform: translateY(8px);
     box-shadow: -10px -5px 5px rgb(49, 49, 49);
-    
+
 }
 
 .content__jobs-imgs {
@@ -128,7 +128,7 @@
     border-radius: 20px;
     padding: 100px 15px 30px 15px;
     min-height: 80vh;
-   
+
 }
 
 
@@ -203,6 +203,10 @@
     margin-top: 60px;
     text-align: center;
     padding: 10px 50px;
+    background-color: #0e61aa;
+    color: white;
+
+
 }
 
 .content__discover-card{
@@ -219,14 +223,21 @@
     justify-content: center;
     align-items: center;
     background-color: #dad5ce;
-    color: rgb(82, 80, 80);
+    background: linear-gradient(0deg, rgba(14,97,170,1) 36%, rgba(8,52,91,1) 63%);
     border-radius: 10px;
     padding: 15px;
 
 }
 
 .card__discover img {
-    width: 250px; 
+    width: 250px;
     height: 200px;
-    object-fit: cover; 
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.btn__discovery {
+    margin-top: 10px;
+    background-color: #010204;
+    width: 250px;
 }

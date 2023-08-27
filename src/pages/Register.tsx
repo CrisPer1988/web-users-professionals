@@ -42,7 +42,7 @@ const Register = () => {
                     <label htmlFor="password">Password</label>
                     <input  {...register("password")} type="password" />
                 </div>
-                <button className="btn__send">Enviar</button>
+                <button className="btn__register">Enviar</button>
                 <span className="indicator__login" onClick={showForm}>Ya tenes cuenta?</span>
             </form>
         </>
