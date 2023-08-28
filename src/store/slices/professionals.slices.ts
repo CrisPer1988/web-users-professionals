@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import axiosInstance from "../../utils/getConfig";
 
 
 export const professionalsSlices = createSlice({
@@ -17,9 +18,10 @@ export const {setProfessionals} = professionalsSlices.actions
 export default professionalsSlices.reducer
 
 export const AllprofessionalsThunk = () => (dispatch:any) =>{
-    const url = "http://localhost:4600/api/v1/professionals/"
+   // const url = "http://localhost:4600/api/v1/professionals/"
 
-    axios.get(url)
+    axiosInstance.get("/api/v1/professionals")
+   // axios.get(url)
     .then(res => {
         // console.log(res.data);
         
@@ -31,9 +33,11 @@ export const ProfessionalsByCategoryThunk = (id:number) => (dispatch:any) =>{
     
     console.log(`putete ${id}`);
     
-    const url = `http://localhost:4600/api/v1/professionals/categories/${id}`
+   // const url = `http://localhost:4600/api/v1/professionals/categories/${id}`
 
-    axios.get(url)
+    axiosInstance
+    .get(`/api/v1/professionals/categories/${id}`)
+    //axios.get(url)
 
     .then(res => {
         // console.log(res.data.categories);

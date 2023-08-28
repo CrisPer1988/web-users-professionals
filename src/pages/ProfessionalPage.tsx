@@ -32,7 +32,7 @@ const dispatch = useDispatch<any>()
 
   useEffect(() => {
     axiosInstance
-      .get(`/professionals/${id}`)
+      .get(`/api/v1/professionals/${id}`)
       .then((res) => {
         setProfessional(res.data.professional);
       })

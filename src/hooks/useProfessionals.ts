@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { AllprofessionalsThunk, ProfessionalsByCategoryThunk } from "../store/slices/professionals.slices"
 import axios from "axios"
 import { Professional } from "../utils/interfaces"
+import axiosInstance from "../utils/getConfig"
 
 export interface PropsProfessionals {
   professionals: Professional
@@ -22,8 +23,11 @@ export const useProfessionals = () => {
   }
 
   useEffect(() => {
-    const url = "http://localhost:4600/api/v1/categories/"
-    axios.get(url)
+    //const url = "http://localhost:4600/api/v1/categories/"
+
+    axiosInstance
+    .get("/api/v1/categories/")
+    //axios.get(url)
       .then(res => {
         // console.log(res.data.categories);
 

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { DataLoginUser } from "../utils/interfaces";
 import { setIsLoggin } from "../store/slices/isloggin.slices"
 import { useDispatch } from "react-redux";
+import axiosInstance from "../utils/getConfig";
 
 
 export const useSubmitLogin = () => {
@@ -16,10 +17,11 @@ export const useSubmitLogin = () => {
   const dispatch = useDispatch()
 
   const submit = (data:DataLoginUser) => {
-    const url = "http://localhost:4600/api/v1/users/login/";
+    //const url = "http://localhost:4600/api/v1/users/login/";
 
-    axios
-      .post(url, data)
+    axiosInstance
+    //axios
+      .post("/api/v1/users/login/", data)
       .then((res) => {
          dispatch(setIsLoggin(false));
         localStorage.setItem('isLoggin', JSON.stringify(false));

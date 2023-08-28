@@ -26,7 +26,7 @@ export const useProfessionalPage = () => {
 
     const sendReview = (data: Professional) => {
         axiosInstance
-            .post(`/professionals/reviews/${id}`, data)
+            .post(`/api/v1/professionals/reviews/${id}`, data)
             .then(() => {
                 reset()
                 setStateReview(!stateReview)

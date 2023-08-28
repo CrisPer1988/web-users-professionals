@@ -9,7 +9,8 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:4600/api/v1/',
+  // baseURL: 'http://localhost:4600/api/v1/',
+  baseURL: 'https://professionals-hd6l.onrender.com/',
 });
 
 axiosInstance.interceptors.request.use((config) => {
