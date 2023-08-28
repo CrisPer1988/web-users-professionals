@@ -87,6 +87,30 @@
     font-size: 1rem;
 }
 
+@media (max-width: 850px) {
+  .description__seccion-professionals {
+    grid-template-columns: 1fr;
+    padding: 5px;
+}
+
+.description__seccion-professionals img {
+  width: 220px;
+}
+
+.filter {
+  flex-direction: column;
+  align-items: start;
+  row-gap: 2rem;
+}
+
+.content_card {
+  padding: 0;
+}
+
+}
+
+
+
 @media (max-width: 790px) {
     .content_card {
         display: grid;

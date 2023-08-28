@@ -241,3 +241,28 @@
     background-color: #010204;
     width: 250px;
 }
+
+@media (max-width: 850px) {
+    .content__jobs-imgs {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .content__img-jobs img {
+        width: 180px;
+        /* margin-bottom: 20px;    */
+        margin: 0 auto
+    }
+
+    .content__img-jobs {
+        
+        background-color: #0e61aa;
+        border-radius: 15px;
+        width: 90%;
+        margin: 0 auto;
+        padding: 15px;
+        color: rgb(246, 245, 245);
+    
+    }
+    
+}
