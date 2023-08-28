@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { AllprofessionalsThunk, ProfessionalsByCategoryThunk } from "../store/slices/professionals.slices"
-import axios from "axios"
 import { Professional } from "../utils/interfaces"
 import axiosInstance from "../utils/getConfig"
 
@@ -23,13 +22,9 @@ export const useProfessionals = () => {
   }
 
   useEffect(() => {
-    //const url = "http://localhost:4600/api/v1/categories/"
-
     axiosInstance
     .get("/api/v1/categories/")
-    //axios.get(url)
       .then(res => {
-        // console.log(res.data.categories);
 
         setCategories(res.data.categories)
       })
@@ -41,7 +36,6 @@ export const useProfessionals = () => {
       dispatch(AllprofessionalsThunk());
     } else {
         handleClick((selectedValue));
-       //dispatch(ProfessionalsByCategoryThunk(selectedValue))
 
     }
   }

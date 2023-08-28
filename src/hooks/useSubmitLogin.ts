@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -17,10 +16,8 @@ export const useSubmitLogin = () => {
   const dispatch = useDispatch()
 
   const submit = (data:DataLoginUser) => {
-    //const url = "http://localhost:4600/api/v1/users/login/";
 
     axiosInstance
-    //axios
       .post("/api/v1/users/login/", data)
       .then((res) => {
          dispatch(setIsLoggin(false));

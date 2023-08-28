@@ -1,4 +1,3 @@
-import axios from "axios"
 import {useState} from "react"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom";
@@ -19,11 +18,8 @@ export const useSubmitRegister = () => {
     const navigate = useNavigate()
 
     const submit = (data:DataRegisterUser) => {
-       // const url = "http://localhost:4600/api/v1/users/"
-
         axiosInstance
         .post("/api/v1/users/", data)
-        //axios.post(url, data)
         .then(res => {
             dispatch(setIsLoggin(false));
             localStorage.setItem('isLoggin', JSON.stringify(false));
